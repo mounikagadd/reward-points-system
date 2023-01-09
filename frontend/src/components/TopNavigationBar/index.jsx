@@ -1,11 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 
 const PAGES = [
     {
         title: 'Reward Points',
-        route: '/getRewardPoints',
+        route: '/get-reward-points',
     },
     {
         title: 'All Customers',
@@ -16,10 +16,8 @@ const PAGES = [
         route: '/new-customer',
     },
 ];
-
 const TopNavigationBar = () => {
     const navigate = useNavigate();
-
     const onNavigationClick = (e, to) => {
         e.preventDefault();
         e.stopPropagation();
@@ -27,14 +25,13 @@ const TopNavigationBar = () => {
     };
     return (
         <div className="top-navigation">
-            <span className="top-navigation__title">Reward Points System</span>
+            <Link to={'/'} className="top-navigation__title">Reward Points System</Link>
             {
                 PAGES.map(({ title, route }) => (
-                    <button onClick={e => onNavigationClick(e, route)}>{title}</button>
+                    <button key={route} onClick={e => onNavigationClick(e, route)}>{title}</button>
                 ))
             }
         </div>
     );
 };
-
 export default TopNavigationBar;
