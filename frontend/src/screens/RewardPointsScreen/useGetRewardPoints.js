@@ -2,28 +2,32 @@ import axios from "axios";
 import { useCallback, useState } from "react";
 import { API_SERVICES } from "../../constants";
 
-const useAddNewCustomer = (name) => {
+const useGetRewardPoints = (customerName) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    const [customerID, setCustomerID] = useState(null);
+    const [rewardPoints, setRewardPoints] = useState(null);
 
     const onSubmit = useCallback(async (event) => {
-        setErrorMessage('');
-        setIsSubmitting(true);
-        setCustomerID(null);
         event.preventDefault();
         event.stopPropagation();
+        setErrorMessage('');
+        setIsSubmitting(true);
+        setRewardPoints(null);
         try {
-            const { data } = await axios.post(API_SERVICES.ADD_CUSTOMER, { name });
-            setCustomerID(data.customerID);
+            const { data } = await axios.get(API_SERVICES.GET_REWARD_POINTS, {
+                params: {
+                    customerName,
+                }
+            });
+            setRewardPoints(data.points);
         } catch (error) {
             setErrorMessage(error?.response?.data?.message ?? error.toString());
         } finally {
             setIsSubmitting(false);
         }
-    }, [name]);
+    }, [customerName]);
 
-    return [{ isSubmitting, errorMessage, customerID }, onSubmit];
+    return [{ isSubmitting, errorMessage, rewardPoints }, onSubmit];
 };
 
-export default useAddNewCustomer;
+export default useGetRewardPoints;

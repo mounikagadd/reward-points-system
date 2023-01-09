@@ -1,18 +1,11 @@
-.customers-list {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 12px;
-
-    padding: 8px;
-    width: 420px;
+.customers-table {
+    width: 600px;
+    border-collapse: collapse;
 }
 
-.customers-list__item {
-    display: grid;
-    grid-template-columns: 100px 1fr 130px;
-    font-size: 20px;
+.customers-table th,
+.customers-table td {
+    border: 1px solid #ddd;
     padding: 8px 12px;
 }
 
@@ -21,10 +14,15 @@
     font-weight: bold;
 }
 
-.customers-list__item__add-transaction {
-    display: inline-block;
+.customers-list__cell-add-transaction {
     font-size: 16px;
     text-decoration: none;
     color: lightcoral;
     font-weight: bold;
+}
+
+.no-customers-message {
+    opacity: 0.7;
+    color: gray;
+    text-align: center;   
 }

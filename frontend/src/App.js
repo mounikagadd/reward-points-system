@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 
 import {
@@ -7,7 +8,6 @@ import TopNavigationBar from './components/TopNavigationBar';
 import CustomersScreen from './screens/CustomersScreen';
 import NewCustomerScreen from './screens/NewCustomerScreen';
 import NewTransactionScreen from './screens/NewTransactionScreen';
-import RewardPointsScreen from './screens/RewardPointsScreen';
 
 function App() {
   return (
@@ -15,8 +15,7 @@ function App() {
       <div className="">
         <TopNavigationBar />
         <Routes>
-          <Route path="/" element={<Navigate to={"/get-reward-points"} replace />} />
-          <Route path="/get-reward-points" element={<RewardPointsScreen />} />
+          <Route path="/" element={<Navigate to="/customers" replace />} />
           <Route path="/customers" element={<CustomersScreen />} />
           <Route path="/new-customer" element={<NewCustomerScreen />} />
           <Route path="/:customerID/new-transaction" element={<NewTransactionScreen />} />
