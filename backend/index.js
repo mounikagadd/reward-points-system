@@ -5,21 +5,13 @@ import logger from "morgan";
 
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import addCustomer from "./controllers/addCustomer.js";
-import addTransaction from "./controllers/addTransaction.js";
-import getCustomers from "./controllers/getCustomers.js";
+import addCustomerController from "./controllers/addCustomer/index.js";
+import addTransactionController from "./controllers/addTransaction/index.js";
+import getCustomersController from "./controllers/getCustomers/index.js";
 
 import { Low } from "lowdb";
 import { JSONFile } from "lowdb/node";
-
-// setting up low db configuration
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const file = join(__dirname, "db.json");
-
-// Configure lowdb to write to JSONFile
-const adapter = new JSONFile(file);
-
-export const database = new Low(adapter);
+import initializeDatabase from "./initializeDatabase.js";
 
 // Setting up express server
 const app = express();
@@ -39,12 +31,24 @@ app.use(bodyParser.json());
 // logger
 app.use(logger("tiny"));
 
+// setting up low db configuration
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const file = join(__dirname, "db.json");
+
+// Configure lowdb to write to JSONFile
+const adapter = new JSONFile(file);
+
+export const database = new Low(adapter);
+
+// initialize empty database 
+app.use(initializeDatabase);
+
 // APIs
-app.get("/api/customers", getCustomers);
+app.get("/api/customers", getCustomersController);
 
-app.post("/api/customer", addCustomer);
+app.post("/api/customer", addCustomerController);
 
-app.post("/api/customer/transaction", addTransaction);
+app.post("/api/customer/transaction", addTransactionController);
 
 // error handling
 // assume 404 since no middleware responded
