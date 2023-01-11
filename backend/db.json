@@ -33,38 +33,8 @@
           "amount": 200,
           "rewardPoints": 250,
           "timestamp": "2022-10-09T21:13:13+05:30"
-        },
-        {
-          "amount": 60,
-          "rewardPoints": 10,
-          "timestamp": "2023-01-10T12:49:22-05:00"
-        },
-        {
-          "amount": 120,
-          "rewardPoints": 90,
-          "timestamp": "2023-01-10T12:50:57-05:00"
-        },
-        {
-          "amount": 30,
-          "rewardPoints": 0,
-          "timestamp": "2023-01-10T12:51:23-05:00"
-        },
-        {
-          "amount": 20,
-          "rewardPoints": 0,
-          "timestamp": "2023-01-10T12:51:36-05:00"
-        },
-        {
-          "amount": 120,
-          "rewardPoints": 90,
-          "timestamp": "2023-01-10T12:52:23-05:00"
         }
       ]
-    },
-    {
-      "name": "120",
-      "customerID": "Rc55",
-      "transactions": []
     }
   ]
 }

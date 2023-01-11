@@ -1,7 +1,7 @@
 # Getting Started with Backend server
 Backend server to handle API requests and database connection for reward based system frontend application.
 
-## Technical stack
+## Technologies used
 - Node JS (Runtime)
 - Express JS (Server and API services)
 - LowDB (Database)
@@ -9,6 +9,7 @@ Backend server to handle API requests and database connection for reward based s
 - Morgan (Logging)
 - Cors (Handle CORS)
 - Body Parser (URL encoding and JSON parsing)
+- Date fns (Date manipulation)
 
 ## Pre-requisites
 Node version >= 14.20

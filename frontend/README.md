@@ -1,7 +1,7 @@
 # Getting Started with Frontend application
 Frontend application to add customer and transactions, And to get customer's reward points based on purchases.
 
-## Technical stack
+## Technologies used
 - React
 - React Router V6 (Routing)
 - CSS3
@@ -25,13 +25,20 @@ npm install
 ```
 
 ## Usage
-Start the server using
+Start the application
 
 ```sh
 npm start
 ```
 
 And enter `http://localhost:3000/` in the browser
+
+## Testing
+To run unit tests
+
+```sh
+npm run test
+```
 
 ### Deployment
 
